@@ -31,8 +31,7 @@
     counts))
 
 ;; Send work to agents, wait for them to finish
-;(doseq [[line a] work-seq] (send a count-line line))
-(doseq [work work-seq] (send (first(rest work)) count-line (first work)))
+(doseq [[line a] work-seq] (send a count-line line))
 (doseq [a agent-pool] (await a))
 
 ;; Produce final map
